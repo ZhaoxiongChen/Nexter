@@ -1,0 +1,6 @@
+.gallery {
+    background-color: $color-grey-dark-1;
+
+    // Column span
+    grid-column: full-start / full-end;
+}

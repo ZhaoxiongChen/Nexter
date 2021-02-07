@@ -1,0 +1,6 @@
+.footer {
+    background-color: $color-secondary;
+
+    // Column span
+    grid-column: full-start / full-end;
+}
