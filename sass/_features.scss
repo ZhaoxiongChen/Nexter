@@ -1,6 +1,34 @@
 .features {
-    background-color: $color-grey-light-2;
-
     // Column span
     grid-column: center-start / center-end;
+
+    // Test
+    margin: 15rem 0;
+
+    // Subgrid 2 definition
+    display: grid;
+    // grid-template-columns: repeat(3, 1fr); // Implicit row track
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 6rem;
+    align-items: start; // Move all the grid items to the start of column-axis
+}
+
+.feature {
+    // Subgrid 3 definition
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 2.5rem;
+
+    &__icon {
+        fill: $color-primary;
+        height: 4.5rem;
+        width: 4.5rem;
+        grid-row: 1 / span 2; // Make icon span the entire column
+        transform: translateY(-1rem); // Move up 10px
+    }
+
+    &__text {
+        font-size: 1.5rem;
+    }
 }
