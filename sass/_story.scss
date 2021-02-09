@@ -7,11 +7,19 @@
 
         background-image: linear-gradient(rgba($color-primary, .5) 0%, rgba($color-primary-dark, .5) 50%), url(../img/back.jpg);
 
+        background-size: cover;
+
         // Place images inside a 6 * 6 grid
         display: grid;
         grid-template-rows: repeat(6, 1fr);
         grid-template-columns: repeat(6, 1fr);
         align-items: center; // Make all images vertically centered to the cell
+
+        // Put story__content above story__pictures
+        @media only screen and (max-width: $bp-m) {
+            grid-column: full-start / full-end;
+            padding: 6rem;
+        }
     }
 
     &__img--1 {
@@ -19,6 +27,12 @@
         grid-row: 2 / 6;
         grid-column: 2 / 6;
         box-shadow: 0 2rem 5rem rgba(black, 0.2);
+
+        // Change the image placement
+        @media only screen and (max-width: $bp-m) {
+            grid-row: 1 / -1;
+            grid-column: 1 / 5;
+        }
     }
 
     &__img--2 {
@@ -27,6 +41,12 @@
         grid-column: 4 / 7;
         z-index: 20;
         box-shadow: 0 2rem 5rem rgba(black, 0.2);
+
+        // Change the image placement
+        @media only screen and (max-width: $bp-m) {
+            width: 100%;
+            grid-row: 1 / -1;
+        }
     }
 
     &__content {
@@ -49,6 +69,12 @@
         align-content: center;
         justify-items: start;
         */
+
+        // Put story__content above story__pictures
+        @media only screen and (max-width: $bp-m) {
+            grid-column: full-start / full-end;
+            grid-row: 5 / 6;
+        }
     }
 
     &__text {

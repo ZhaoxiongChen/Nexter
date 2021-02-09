@@ -3,8 +3,13 @@
     padding: 3rem;
     // Column span
     grid-column: col-start 7 / full-end;
+    
+    // Place realtors underneath header
+    @media only screen and (max-width: $bp-m) {
+        grid-column: full-start / full-end;
+    }
 
-    // Use grid to center the 2 * 3 grid
+    // Use grid to center the list grid and h3 heading
     display: grid;
     align-content: center;
     justify-content: center;
@@ -14,13 +19,23 @@
     grid-row-gap: 2rem;
 
     &__list {
-        // Grid setup
+        // List grid setup: 2 * 3
         display: grid;
         grid-template-columns: min-content max-content;
         grid-column-gap: 2rem;
         grid-row-gap: 5vh; // Dynamic with viewport height change
         // Align img and details
         align-items: center;
+
+        // Place realtors list horizontally
+        @media only screen and (max-width: $bp-m) {
+            grid-template-columns: repeat(3, min-content max-content);
+        }
+
+        // Place realtors list vertically once again
+        @media only screen and (max-width: $bp-s) {
+            grid-template-columns: min-content max-content;
+        }
     }
 
     &__img {
