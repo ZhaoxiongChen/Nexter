@@ -5,15 +5,28 @@
     // Test
     margin: 15rem 0;
 
-    // Subgrid 2 definition
-    display: grid;
-    // grid-template-columns: repeat(3, 1fr); // Implicit row track
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    grid-gap: 6rem;
-    align-items: start; // Move all the grid items to the start of column-axis
+    // Progressive Enhancement e.g.
+    @supports (display: grid) {
+        // Subgrid 2 definition
+        display: grid;
+        // grid-template-columns: repeat(3, 1fr); // Implicit row track
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        grid-gap: 6rem;
+        align-items: start; // Move all the grid items to the start of column-axis
+    }
 }
 
 .feature {
+    // Progressive Enhancement e.g.
+    float: left;
+    width: 33.3333%;
+    margin-bottom: 6rem;
+    @supports (display: grid) {
+        // float: left; // float ignored in grid
+        width: auto;
+        margin-bottom: 0;
+    }
+
     // Subgrid 3 definition
     display: grid;
     grid-template-columns: min-content 1fr;
